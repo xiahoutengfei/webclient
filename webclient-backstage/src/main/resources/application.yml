@@ -1,0 +1,47 @@
+# Tomcat
+server:
+    port: 86
+    
+    #address: 192.168.31.164
+    tomcat:
+        max-threads: 1000
+        min-spare-threads: 30
+        
+        
+    session:
+        tracking-modes: COOKIE
+        timeout: 30000
+    
+#文件上传路径     
+resources_path: D:/tp/
+
+  
+
+    #模板配置    
+freemarker:
+        charset: utf-8
+        enabled: true
+        suffix: .html
+        cache: false
+        template-loader-path: classpath:/templates/
+        expose-session-attributes: true
+        expose-spring-macro-helpers: true
+        request-context-attribute: request
+        expose-request-attributes: true
+        content-type: text/html
+        settings: 
+            number_format: 0.##
+session:
+        store-type: none
+http:
+      #上传文件大小设置
+      multipart:
+          maxFileSize: 10Mb
+          maxRequestSize: 50Mb
+mvc:
+     static-path-pattern: /**
+       
+resources:
+        static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,file:${resources_path}
+        
+        
